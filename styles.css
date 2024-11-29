@@ -1,15 +1,29 @@
+/* General Styles */
 body, html {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     margin: 0;
-    overflow: hidden;
-    position: relative;
-    background-color: #e0e0e0ce;
+    font-family: 'Arial', sans-serif;
+    background-color: #FF4F00;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FF4F00;
+    z-index: 1;
+    pointer-events: none;
+}
 .background-text {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 25vw;
@@ -18,82 +32,100 @@ body, html {
     font-family: 'Impact', sans-serif;
     opacity: 0.5;
     white-space: nowrap;
+    animation: flicker 8s infinite;
 }
 
-.circle {
-    position: fixed;
-    width: 200vw;
-    height: 200vw;
-    background-color: #FF4F00;
-    border-radius: 50%;
-    bottom: -50vw;
-    left: 0;
+
+@keyframes flicker {
+    0% { opacity: 0.6; }
+    25% { opacity: 0.2; }
+    50% { opacity: 0.1; }
+    75% { opacity: 0.2; }
+    100% { opacity: 0.6; }
+}
+
+.container {
+    position: relative;
+    text-align: center;
     z-index: 2;
-    animation: pulse 10s infinite;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
-/* .circle::before {
-    content: 'Coming Soon';
-    position: absolute;
-    bottom: 10%;
-    font-family: 'Dancing Script', cursive;
-    font-size: 40px;
-    color: white;
-} */
+.headline {
+    margin-top: 20vh;
+}
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+.headline h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.cta {
+    margin-top: 120vh;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
 }
 
 form {
-    position: fixed;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-    animation: counter-pulse 10s infinite; /* Same counter-animation as "Coming Soon" */
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 form label {
-    font-family: 'Dancing Script', cursive;
-    color: white;
-    font-size: 2vw;
+    font-size: 1.2rem;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
 }
 
 form input {
     padding: 10px;
-    border: 2px solid white;
-    border-radius: 25px;
-    background: transparent;
-    color: white;
-    font-family: Arial, sans-serif;
-    width: 300px;
-}
-
-form input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
 }
 
 form button {
-    padding: 10px 20px;
-    border: 2px solid white;
-    border-radius: 25px;
-    background: transparent;
-    color: white;
-    font-family: 'Dancing Script', cursive;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #FF4F00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+form button:hover {
+    background-color: #000;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .background-text {
+        font-size: 10vw;
+    }
+
+    .headline h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        width: 100%;
+    }
+
+   
