@@ -38,9 +38,9 @@ body, html {
 
 @keyframes flicker {
     0% { opacity: 0.6; }
-    25% { opacity: 0.2; }
-    50% { opacity: 0.1; }
-    75% { opacity: 0.2; }
+    25% { opacity: 0.3; }
+    50% { opacity: 0.2; }
+    75% { opacity: 0.3; }
     100% { opacity: 0.6; }
 }
 
